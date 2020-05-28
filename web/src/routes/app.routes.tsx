@@ -4,7 +4,7 @@ import Dashboard from "../pages/Dashboard";
 
 const AppRoutes: React.FC<RouteProps> = () => {
   return (
-      <Route exact path="/" component={Dashboard} />
+      <Route path="/dashboard" component={Dashboard} />
   );
 };
 

@@ -22,9 +22,9 @@ const Header: React.FC = () => {
             exact
             className="nav-item nav-link"
             activeClassName="active"
-            to="/"
+            to="/dashboard"
           >
-            Home
+            Dashboard
           </NavLink>
           <NavLink
             className="nav-item nav-link"
