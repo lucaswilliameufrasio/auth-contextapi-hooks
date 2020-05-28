@@ -31,7 +31,7 @@
 
 ---
 
-## Installation
+## Installation and Usage
 
 ### Clone
 
@@ -75,7 +75,7 @@ $ yarn
 $ yarn android
 ```
 
-> Open another terminal window an run the metro bundler with
+> Open another terminal window on mobile folder an run the metro bundler with
 
 ```shell
 $ yarn start
