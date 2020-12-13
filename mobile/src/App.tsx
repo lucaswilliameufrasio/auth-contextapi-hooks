@@ -2,6 +2,7 @@ import 'react-native-gesture-handler';
 
 import React from 'react';
 import {AuthProvider} from './contexts/auth';
+import {SnackBarProvider} from './contexts/snack';
 
 import Routes from './routes';
 import {NavigationContainer} from '@react-navigation/native';
@@ -9,9 +10,11 @@ import {NavigationContainer} from '@react-navigation/native';
 const App: React.FC = () => {
   return (
     <NavigationContainer>
-      <AuthProvider>
-        <Routes />
-      </AuthProvider>
+      <SnackBarProvider>
+        <AuthProvider>
+          <Routes />
+        </AuthProvider>
+      </SnackBarProvider>
     </NavigationContainer>
   );
 };
