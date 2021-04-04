@@ -62,10 +62,10 @@ const Message = (props: any) => {
 };
 
 export function SnackBarProvider({children}: ISnackBarProvider) {
-  const [alerts, setAlerts] = useState<string[]>([]);
+  const [messages, setMessages] = useState<string[]>([]);
 
-  const activeAlertIds = alerts.join(',');
-  const itemsOnTheQueue = alerts.length;
+  const activeAlertIds = messages.join(',');
+  const itemsOnTheQueue = messages.length;
 
   useEffect(() => {
     if (activeAlertIds.length > 0) {
@@ -75,8 +75,8 @@ export function SnackBarProvider({children}: ISnackBarProvider) {
 
       const timer = setTimeout(
         () =>
-          setAlerts((alertsWaiting) =>
-            alertsWaiting.slice(0, alertsWaiting.length - 1),
+          setMessages((messagesWaiting) =>
+            messagesWaiting.slice(0, messagesWaiting.length - 1),
           ),
         timeToShowIfThereIsASnackBeingShown,
       );
@@ -87,7 +87,7 @@ export function SnackBarProvider({children}: ISnackBarProvider) {
 
   const addAlert = useCallback((content) => {
     setTimeout(() => {
-      setAlerts((oldAlerts) => [content, ...oldAlerts]);
+      setMessages((oldMessages) => [content, ...oldMessages]);
     }, 125);
   }, []);
 
@@ -97,13 +97,13 @@ export function SnackBarProvider({children}: ISnackBarProvider) {
     <SnackBarContext.Provider value={value}>
       {children}
       <View style={styles.snackbar}>
-        {alerts.map((alert, index) => (
+        {messages.map((message, index) => (
           <Message
-            key={`${index}-${alert}-snackbar`}
-            message={alert}
+            key={`${index}-${message}-snackbar`}
+            message={message}
             onHide={() => {
-              setAlerts((oldAlert) =>
-                oldAlert.filter((currentMessage) => currentMessage !== alert),
+              setMessages((oldAlert) =>
+                oldAlert.filter((currentMessage) => currentMessage !== message),
               );
             }}
           />
