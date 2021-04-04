@@ -26,13 +26,13 @@ export const AuthProvider: React.FC = ({children}) => {
 
   useEffect(() => {
     async function loadStorageData() {
-      const storagedUser = await AsyncStorage.getItem('@RNAuth:user');
-      const storagedToken = await AsyncStorage.getItem('@RNAuth:token');
+      const storedUser = await AsyncStorage.getItem('@RNAuth:user');
+      const storedToken = await AsyncStorage.getItem('@RNAuth:token');
 
-      if (storagedUser && storagedToken) {
-        api.defaults.headers.Authorization = `Bearer ${storagedToken}`;
+      if (storedUser && storedToken) {
+        api.defaults.headers.Authorization = `Bearer ${storedToken}`;
 
-        setUser(JSON.parse(storagedUser));
+        setUser(JSON.parse(storedUser));
       }
       addAlert('Eae');
       setLoading(false);
